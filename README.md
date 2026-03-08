@@ -35,7 +35,7 @@ The dataset is not included in this repository due to size and licensing constra
 ---
 
 ## Repository Structure
-
+```
 DSAN6500_fin/
 │
 ├── README.md
@@ -46,3 +46,5 @@ DSAN6500_fin/
 │
 └── data/
     └── KITTI Road dataset (not included in repo)
+
+```
