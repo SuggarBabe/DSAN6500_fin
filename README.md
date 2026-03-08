@@ -42,7 +42,7 @@ DSAN6500_fin/
 ├── check-in-1.md
 │
 ├── notebooks/
-│ └── eda.ipynb
+│   └── eda.ipynb
 │
 └── data/
-└── KITTI Road dataset
+    └── KITTI Road dataset (not included in repo)
