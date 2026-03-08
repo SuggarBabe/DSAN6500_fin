@@ -36,19 +36,13 @@ The dataset is not included in this repository due to size and licensing constra
 
 ## Repository Structure
 
-DSAN6500_fin
+DSAN6500_fin/
 │
 ├── README.md
 ├── check-in-1.md
 │
-├── data
-│   ├── testing
-│   │   ├── calib
-│   │   └── image_2
-│   └── training
-│       ├── calib
-│       ├── gt_image_2
-│       └── image_2
+├── notebooks/
+│ └── eda.ipynb
 │
-└── notebooks
-    └── eda.ipynb
+└── data/
+└── KITTI Road dataset
