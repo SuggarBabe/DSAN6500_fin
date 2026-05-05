@@ -1,24 +1,8 @@
 # Robust Drivable Road Segmentation under Image Degradation
 
-This repository contains materials for a computer vision course project on road segmentation in autonomous driving scenes.
+This repository contains a computer vision project on road segmentation under degraded image conditions.
 
-The goal of this project is to analyze how segmentation models perform when input images are degraded by real-world conditions such as blur, noise, brightness changes, and compression artifacts.
-
----
-
-## Check-In 1
-
-The detailed Check-In 1 report is available here:
-
-**check-in-1.md**
-
-This report includes:
-
-- Problem framing and scope
-- Dataset documentation
-- Data audit / exploratory data analysis (EDA)
-- Evaluation plan
-- Initial baseline plan
+The goal is to evaluate how different models perform when input images are affected by real-world factors such as blur, noise, brightness changes, and compression artifacts.
 
 ---
 
@@ -26,25 +10,122 @@ This report includes:
 
 This project uses the **KITTI Road Benchmark** dataset.
 
-Download from the official website:
+Download from:
 
 https://www.cvlibs.net/datasets/kitti/eval_road.php
 
-The dataset is not included in this repository due to size and licensing constraints.
+The dataset is not included in this repository due to size.
+
+After downloading, place the data as:
+
+```
+data/
+├── training/
+│   ├── image_2/
+│   └── gt_image_2/
+└── testing/
+    └── image_2/
+```
+
+---
+
+## Methods
+
+The project compares three approaches:
+
+* Classical baseline (Canny edge + morphology)
+* U-Net (CNN-based segmentation)
+* Vision Transformer (ViT-based segmentation)
+
+---
+
+## Results
+
+| Model     | Dice Score |
+| --------- | ---------- |
+| Classical | 0.1883     |
+| U-Net     | ~0.75      |
+| ViT       | **0.9217** |
+
+Key observations:
+
+* Classical methods fail due to lack of semantic understanding
+* U-Net improves segmentation quality significantly
+* ViT achieves the best performance by capturing global context
 
 ---
 
 ## Repository Structure
-```
-DSAN6500_fin/
-│
-├── README.md
-├── check-in-1.md
-│
-├── notebooks/
-│   └── eda.ipynb
-│
-└── data/
-    └── KITTI Road dataset (not included in repo)
 
 ```
+
+DSAN6500_FIN/
+├── README.md
+├── final.md
+├── check-in-1.md
+├── check-in-2.md
+├── check-in-3.md
+
+├── notebooks/
+│   ├── eda.ipynb
+│   ├── baseline.ipynb
+│   ├── unet.ipynb
+│   ├── vit_segmentation.ipynb
+│   └── robustness.ipynb
+
+├── results/
+│   ├── threshold_sweep.csv
+│   └── figures/
+│       ├── qualitative_examples.png
+│       └── failure_cases.png
+
+└── data/
+    └── KITTI dataset (not included)
+    
+```
+
+---
+
+## Run Instructions
+
+Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+Run notebooks:
+
+```
+jupyter notebook notebooks/eda.ipynb
+jupyter notebook notebooks/baseline.ipynb
+jupyter notebook notebooks/unet.ipynb
+jupyter notebook notebooks/vit_segmentation.ipynb
+jupyter notebook notebooks/robustness.ipynb
+```
+
+---
+
+## Results Artifacts
+
+Qualitative outputs and failure cases are stored in:
+
+```
+results/figures/
+```
+
+---
+
+## Project Reports
+
+* `check-in-1.md` → problem framing and dataset
+* `check-in-2.md` → baseline models
+* `check-in-3.md` → transformer model
+* `final.md` → final analysis and conclusions
+
+---
+
+## Notes
+
+* This project focuses on evaluating robustness under degraded conditions
+* Performance may vary depending on threshold selection and training setup
